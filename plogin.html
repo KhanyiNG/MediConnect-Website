@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="newstyle - Copy.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+<!-- Include the Firebase JavaScript SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+<!-- Add your Firebase project configuration here -->
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDf2HfoxicUgf7P2n9rTDBF7XT7CwTCpbw",
+    authDomain: "mediconnect-apk-6739f.firebaseapp.com",
+    projectId: "mediconnect-apk-6739f",    
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+</head>
+
+
+<nav class="navbar navbar-expand-md">
+	<a class="navbar-brand" href="#" id="Home">DIGITAL HEALTH HUB</a>
+	<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="main-navigation">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="home.html">Return to Home</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+<body>
+
+
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase"> Login AS A PATIENT </h3>
+                  
+              
+              
+			  <h2>Login For Better Healthcare</h2>
+              <br>
+
+              <div class="row g-0">
+                <div class="col-xl-6 d-none d-xl-block">
+                    <img src="DHH32.jpeg" class="img-fluid">
+
+                </div>
+    
+                    <div class="col-xl-6 d-none d-xl-block">
+                        <br><br><br>
+            <div class="form-outline mb-4">
+              <input type="email" id="Email" class="form-control" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" />
+              <label class="form-label" for="Email">Email</label>
+            </div>
+         
+            <div class="form-outline mb-4">
+              <input type="password" id="Password" class="form-control" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;"/>
+              <label class="form-label" for="Password">Password</label>
+            </div>
+            <a button  onclick="loginUser()" class="nav-link" class="btn btn-primary">Login</button></a>
+
+                </div>
+
+              </div>
+    
+      <br>
+    </br>
+
+
+
+       
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+                <br><br><br><br><br>
+              <h3 class="mb-5 text-uppercase"> WORKING HOURS</h3>
+              <p>Monday,      08:00am - 17:00pm
+                <br/>Tuesday,    08:00am - 17:00pm
+                <br/>Wednesday,  08:00am - 17:00pm
+                <br/>Thursday,   08:00am - 17:00pm
+          <br/>Friday,     08:00am - 17:00pm
+          <br/>Saturday,   08:00am - 13:00pm
+          <br>
+          <br/>Sunday, 08:00am - 17:00pm
+          <br/>Public Holidays, 08:00am - 17:00pm</p>
+            </div>
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14374.72116583958!2d28.19696106738277!3d-25.74808423939732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sza!4v1693919422266!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              </div>
+              </div>
+              </div>
+              
+<br>
+        <!-- Add your JavaScript code for Firebase Authentication here -->
+        <script>
+          // Function to log in the user
+          function loginUser() {
+            var email = document.getElementById("Email").value;
+            var password = document.getElementById("Password").value;
+        
+            firebase.auth().signInWithEmailAndPassword(email, password)
+              .then((userCredential) => {
+                // User logged in successfully
+                var user = userCredential.user;
+                alert("Login Successful", user);
+        
+                // You can redirect the user to a different page after successful login
+                window.location.href = "patient.html";
+              })
+              .catch((error) => {
+                // An error occurred during login
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.error("Error:", errorCode, errorMessage);
+                alert("Login failed");
+              });
+          }
+        </script>
+        
+
+			
+
+            <footer class="page-footer">
+              <div class="rowwww">
+                <div class="columnnn" style="align-content: center;">
+                    <img src="discovery.png" alt="" style="width: 80%;  margin-left: 30%;">
+                </div>
+                <div class="columnnn"  style="align-content: center;">
+                    <img src="Bankmed-1.png" alt="" style="width: 60%; margin-left: 20%;">
+                </div>
+                <div class="columnnn" style="align-content: center;">
+                    <img src="GEMS23.png" alt="" style="width: 80%; margin-left: 20%;">
+                </div>
+                <div class="columnnn" style="align-content: center;">
+                    <img src="Momentum33.png" alt="" style="width: 60%; margin-left: 20%;">
+                </div>
+              </div>
+              <br><br>
+              <p class="text-uppercase font-weight-bold">Stay In Touch With DigitalHealthHub © 2020 Copyright: MyWebsite.com</p>
+              </footer>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="newstyle.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+<!-- Include the Firebase JavaScript SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<!-- Add your Firebase project configuration here -->
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDf2HfoxicUgf7P2n9rTDBF7XT7CwTCpbw",
+ authDomain: "mediconnect-apk-6739f.firebaseapp.com",
+ projectId: "mediconnect-apk-6739f", 
+ messagingSenderId: "289810283860",
+      storageBucket: "gs://mediconnect-apk-6739f.appspot.com/",
+      appId: "1:289810283860:android:90178fefc8100e1922dcc1"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+</script>
+
+</head>
+
+
+<nav class="navbar navbar-expand-md">
+	<a class="navbar-brand" href="#" id="Home">DIGITAL HEALTH HUB</a>
+	<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="main-navigation">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="doctor.html">Return to Doctor</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+<body>
+
+ 
+  <img src="ENP1.jpeg" class="img-fluid" style="height: 100vh; width: 100vw;">
+
+  
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase"> Enter A New Patient</h3>
+                   
+              
+              
+              
+			  <h2>Enter Patient</h2>
+              <br><br>
+
+              <div class="row g-0">
+                <div class="col-xl-6 d-none d-xl-block">
+            <div class="form-outline">
+              <input type="text" id="form3Example1m" class="form-control form-control-lg" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;"/>
+              <label class="form-label" for="form3Example1m">Name of Department</label>
+            </div>
+          
+            <div class="form-outline">
+              <input type="text" id="form3Example1n" class="form-control form-control-lg" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;"/>
+              <label class="form-label" for="form3Example1n">Doctor's PracticeNumber</label>
+          </div>
+      
+            <div class="form-outline">
+              <input type="text" id="form3Example1n1" class="form-control form-control-lg" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;"/>
+              <label class="form-label" for="form3Example1n1">Name of Patient</label>
+            
+            <div class="form-outline">
+              <input type="text" id="form3Example1m1" class="form-control form-control-lg" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" />
+              <label class="form-label" for="form3Example1m1">Patient ID</label>
+            </div>
+
+            <div class="form-outline">
+              <textarea id="historyData" placeholder="Medical History" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" ></textarea>
+              <label class="form-label" for="form3Example1n1" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" >Patient's Condition</label>
+              </div>
+
+              <div class="form-outline">
+                <label>Does the patient need to return?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="returnPatient" id="returnYes" value="yes">
+                  <label class="form-check-label" for="returnYes">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="returnPatient" id="returnNo" value="no">
+                  <label class="form-check-label" for="returnNo">No</label>
+                </div>
+              </div>
+
+              <div class="form-outline">
+                <label>Does the patient have a referral?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="referralPatient" id="referralYes" value="yes">
+                  <label class="form-check-label" for="referralYes">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="referralPatient" id="referralNo" value="no">
+                  <label class="form-check-label" for="referralNo">No</label>
+                </div>
+              </div>
+
+              <div class="form-outline">
+                <textarea id="treatmentData" placeholder="Treatment Information" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" >
+                </textarea>           
+                     <label class="form-label" for="form3Example1n1" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" >Patient Treatment</label>
+              </div>
+
+              <button onclick="addPatient()" style="background-color: rgb(234, 232, 232); border-color: rgb(147, 147, 234); border-width: thick;" >Add Patient</button>
+
+          </div>
+        </div>
+
+                <div class="col-xl-6 d-none d-xl-block">
+                    <imG src="DHH2.jpeg"
+                    alt="Sample photo" class="img-fluid"
+                    style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; width: 100%; border-style: dashed;" />
+
+              </div>
+              </div>
+
+      
+<br>
+       <h1>Locate Us</h1>
+          <div class="row g-0">
+    
+            <div class="col-xl-6 d-none d-xl-block">
+                <br><br><br><br><br>
+              <h3 class="mb-5 text-uppercase"> WORKING HOURS</h3>
+              <p>Monday,      08:00am - 17:00pm
+                <br/>Tuesday,    08:00am - 17:00pm
+                <br/>Wednesday,  08:00am - 17:00pm
+                <br/>Thursday,   08:00am - 17:00pm
+          <br/>Friday,     08:00am - 17:00pm
+          <br/>Saturday,   08:00am - 13:00pm
+          <br>
+          <br/>Sunday, 08:00am - 17:00pm
+          <br/>Public Holidays, 08:00am - 17:00pm</p>
+            </div>
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14374.72116583958!2d28.19696106738277!3d-25.74808423939732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sza!4v1693919422266!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              </div>
+              </div>
+              
+<br>
+
+  
+</div>
+
+        <!-- Add your JavaScript code for Firebase Authentication here -->
+        <script>
+           function addPatient() {
+      var patientID = document.getElementById("form3Example1n1").value;
+      var patientName = document.getElementById("form3Example1m1").value;
+      var historyData = document.getElementById("historyData").value;
+      var treatmentData = document.getElementById("treatmentData").value;
+
+      // Check if required fields are empty
+      if (!patientID || !patientName) {
+        alert("Patient ID and Name are required.");
+        return;
+      }
+
+      var database = firebase.database();
+      var patientsRef = database.ref("patients");
+      var newPatientRef = patientsRef.push();
+      var newPatientKey = newPatientRef.key;
+
+      var patientData = {
+        patientID: patientID,
+        name: patientName,
+      };
+
+      var historyRef = newPatientRef.child("history");
+      var treatmentRef = newPatientRef.child("treatment");
+
+      historyRef.push(historyData);
+      treatmentRef.push(treatmentData);
+
+      newPatientRef.set(patientData)
+        .then(function () {
+          alert("Patient added successfully");
+          // You can navigate to another page or perform additional actions here
+        })
+        .catch(function (error) {
+          console.error("Error adding patient: ", error);
+          alert("Failed to add patient");
+        });
+    }
+        </script> 
+
+              </div>
+            </div>
+			
+          </div>
+        </div>
+  
+  
+
+        <footer class="page-footer">
+          <div class="rowwww">
+            <div class="columnnn" style="align-content: center;">
+                <img src="discovery.png" alt="" style="width: 80%;  margin-left: 30%;">
+            </div>
+            <div class="columnnn"  style="align-content: center;">
+                <img src="Bankmed-1.png" alt="" style="width: 60%; margin-left: 20%;">
+            </div>
+            <div class="columnnn" style="align-content: center;">
+                <img src="GEMS23.png" alt="" style="width: 80%; margin-left: 20%;">
+            </div>
+            <div class="columnnn" style="align-content: center;">
+                <img src="Momentum33.png" alt="" style="width: 60%; margin-left: 20%;">
+            </div>
+          </div>
+          <br><br>
+          <p class="text-uppercase font-weight-bold">Stay In Touch With DigitalHealthHub © 2020 Copyright: MyWebsite.com</p>
+          </footer>
